@@ -8,7 +8,7 @@
 
 class TimeStringGenerator {
     private $dateTimeFormat = 'Y-m-d H:i:s';
-    private $timeAdjustment = '+';
+    private $timeAdjustment;
     private $fromDate;
     private $second;
     private $minute;
@@ -17,6 +17,14 @@ class TimeStringGenerator {
     private $week;
     private $month;
     private $year;
+
+    /**
+     * Construction function
+     * fromDate is now by default
+     */
+    public function __construct() {
+        $this->fromDate = date($this->dateTimeFormat) . ' ';
+    }
 
     /**
      * This helps to calculate time string from a spesific date
@@ -116,7 +124,7 @@ class TimeStringGenerator {
     }
 
     /**
-     * Calculate for a future time
+     * Calculate for future time
      * @return $this
      */
     public function future() {
@@ -125,11 +133,20 @@ class TimeStringGenerator {
     }
 
     /**
-     * Calculate for a past time
+     * Calculate for past time
      * @return $this
      */
     public function past() {
         $this->timeAdjustment = '-';
+        return $this;
+    }
+
+    /**
+     * Calculate for current time
+     * @return $this
+     */
+    public function current() {
+        $this->timeAdjustment = null;
         return $this;
     }
 
@@ -162,8 +179,8 @@ class TimeStringGenerator {
      */
     public function reset() {
         $this->dateTimeFormat = 'Y-m-d H:i:s';
-        $this->timeAdjustment = '+';
-        $this->fromDate = null;
+        $this->fromDate = date($this->dateTimeFormat) . ' ';
+        $this->timeAdjustment = null;
         $this->second = null;
         $this->minute = null;
         $this->hour = null;
