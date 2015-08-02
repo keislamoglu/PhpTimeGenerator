@@ -5,6 +5,7 @@
  * @url     <https://github.com/keislamoglu>
  */
 
+
 class TimeStringGenerator {
     private $dateTimeFormat = 'Y-m-d H:i:s';
     private $timeAdjustment = '+';
@@ -19,11 +20,11 @@ class TimeStringGenerator {
 
     /**
      * This helps to calculate time string from a spesific date
-     * @param $dateString
+     * @param $dateTimeString
      * @return $this
      */
-    public function fromDate($dateString) {
-        $this->fromDate = $dateString . ' ';
+    public function from($dateTimeString) {
+        $this->fromDate = $dateTimeString . ' ';
         return $this;
     }
 
@@ -118,7 +119,7 @@ class TimeStringGenerator {
      * Calculate for a future time
      * @return $this
      */
-    public function futureTime() {
+    public function future() {
         $this->timeAdjustment = '+';
         return $this;
     }
@@ -127,7 +128,7 @@ class TimeStringGenerator {
      * Calculate for a past time
      * @return $this
      */
-    public function pastTime() {
+    public function past() {
         $this->timeAdjustment = '-';
         return $this;
     }
@@ -157,11 +158,27 @@ class TimeStringGenerator {
     }
 
     /**
+     * Reset all values and settings
+     */
+    public function reset() {
+        $this->dateTimeFormat = 'Y-m-d H:i:s';
+        $this->timeAdjustment = '+';
+        $this->fromDate = null;
+        $this->second = null;
+        $this->minute = null;
+        $this->hour = null;
+        $this->day = null;
+        $this->week = null;
+        $this->month = null;
+        $this->year = null;
+    }
+
+    /**
      * Merge definitions
      * @return string
      */
     private function merge() {
-        return $this->fromDate . $this->timeAdjustment . $this->second . $this->minute . $this->hour . $this->day . $this->week . $this->month . $this->year;
+        return trim($this->fromDate . $this->timeAdjustment . $this->second . $this->minute . $this->hour . $this->day . $this->week . $this->month . $this->year);
     }
 
     /**
@@ -173,4 +190,4 @@ class TimeStringGenerator {
         if ($time > 1)
             $timeString = rtrim($timeString) . 's ';
     }
-} 
+}
