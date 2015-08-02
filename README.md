@@ -35,5 +35,6 @@ var_dump($timeString->from('1991-10-15 15:40:00')->year(24)->hour(2)->second(20)
 /*
  * Print timestamp
  */
-var_dump($timeString->getTime()); // int 1444920020
+var_dump($timeString->getTime());
+// Output: int 1444920020
 ```
