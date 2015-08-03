@@ -6,7 +6,7 @@
  */
 
 
-class TimeStringGenerator {
+class TimeGenerator {
     private $dateTimeFormat = 'Y-m-d H:i:s';
     private $fromDate;
     private $second;
