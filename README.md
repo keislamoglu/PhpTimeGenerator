@@ -1,5 +1,5 @@
 # PhpTimeStringGenerator
-Practically generate time string for Php instead of manually using strtotime() function
+Practically generate time string and manipulate datetime for Php instead of manually using strtotime() function
 
 **Usage examples**
 
