@@ -192,8 +192,8 @@ class TimeStringGenerator {
      * Return raw string
      * @return string
      */
-    public function get() {
-        return $this->merge();
+    public function getString() {
+        return trim($this->fromDate . $this->second . $this->minute . $this->hour . $this->day . $this->week . $this->month . $this->year);
     }
 
     /**
@@ -201,7 +201,7 @@ class TimeStringGenerator {
      * @return int
      */
     public function getTime() {
-        return strtotime($this->merge());
+        return strtotime($this->getString());
     }
 
     /**
@@ -225,14 +225,6 @@ class TimeStringGenerator {
         $this->week = null;
         $this->month = null;
         $this->year = null;
-    }
-
-    /**
-     * Merge definitions
-     * @return string
-     */
-    private function merge() {
-        return trim($this->fromDate . $this->second . $this->minute . $this->hour . $this->day . $this->week . $this->month . $this->year);
     }
 
     /**
