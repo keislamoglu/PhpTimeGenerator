@@ -12,7 +12,7 @@ $time = new TimeGenerator();
 /*
  * Print generated raw string
  */
-var_dump($time->getString());
+var_dump($time->getDate());
 // Output: string '2015-08-03 13:16:37' (length=19)
 
 var_dump($time->addDay(20)->getString());
