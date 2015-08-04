@@ -1,10 +1,9 @@
 <?php
 /**
- * @author  Kadir Emin İslamoğlu <keislamoglu@yandex.com>
- * @date    2015-08-02
- * @url     <https://github.com/keislamoglu>
+ * @author Kadir Emin İslamoğlu <keislamoglu@yandex.com>
+ * @date 2015-08-03
+ * @url <https://github.com/keislamoglu>
  */
-
 
 class TimeGenerator {
     private $dateTimeFormat = 'Y-m-d H:i:s';
@@ -189,14 +188,6 @@ class TimeGenerator {
     }
 
     /**
-     * Return raw string
-     * @return string
-     */
-    public function getString() {
-        return trim($this->fromDate . $this->second . $this->minute . $this->hour . $this->day . $this->week . $this->month . $this->year);
-    }
-
-    /**
      * Return as timestamp
      * @return int
      */
@@ -209,7 +200,7 @@ class TimeGenerator {
      * @return bool|string
      */
     public function getDate() {
-        return date($this->dateTimeFormat, $this->getTime());
+        return $this->date($this->dateTimeFormat, $this->getTime());
     }
 
     /**
@@ -225,6 +216,14 @@ class TimeGenerator {
         $this->week = null;
         $this->month = null;
         $this->year = null;
+    }
+
+    /**
+     * Return raw string
+     * @return string
+     */
+    private function getString() {
+        return trim($this->fromDate . $this->second . $this->minute . $this->hour . $this->day . $this->week . $this->month . $this->year);
     }
 
     /**
@@ -245,4 +244,14 @@ class TimeGenerator {
     private function negative($value) {
         return ($value > 0) ? $value * -1 : $value;
     }
-}
+
+    /**
+     * Return date by given format and timestamp
+     * @param $format
+     * @param null $timestamp
+     * @return bool|string
+     */
+    private function date($format, $timestamp = null) {
+        return date($format, $timestamp);
+    }
+} 
