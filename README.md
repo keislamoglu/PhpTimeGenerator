@@ -20,7 +20,7 @@ var_dump($time->addDay(20)->getDate());
 var_dump($time->from('2014-10-10 02:15:00')->addDay(10)->getDate());
 // 2014-10-20 02:15:00
 
-var_dump($time->subDay(10)->getString());
+var_dump($time->subDay(10)->getDate());
 // 2014-09-30 02:15:00
 
 /*
