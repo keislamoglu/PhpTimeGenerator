@@ -4,6 +4,8 @@ Practically generate and manipulate datetime for Php
 **Usage examples**
 
 ```php
+<?php
+require_once("TimeGenerator.php");
 /*
  * Create object
  */
