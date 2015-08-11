@@ -30,8 +30,8 @@ var_dump($time->subDay(10)->getDate());
  */
 $time->reset();
 
-var_dump($time->from('1991-10-15 15:40:00')->addYear(24)->addHour(2)->subSecond(20)->getDate());
-// 2015-10-15 17:39:40
+var_dump($time->from('1991-10-15 15:40:00')->addYear(24)->addHour(2)->subSecond(20)->subDay(10)->getDate());
+// 2015-10-05 17:39:40
 
 /*
  * Print timestamp
